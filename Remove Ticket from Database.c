@@ -61,7 +61,7 @@ delticket(char *plate, char *state, char *summ)
 	if (tickSearch == NULL) {
 		return -1;
 	}
-unsigned long long fine = fineTab[tickSearch->code].fine; /*fine val*/
+	unsigned long long fine = fineTab[tickSearch->code].fine; /*fine val*/
 	Chain->tot_fine -= fine;
 	Chain->cnt_ticket--;
 	if (prevTick != NULL) 
