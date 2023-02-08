@@ -16,9 +16,7 @@
 /*
  * delticket
  *      remove ticket (summons) from the database
- *      look up the summons for a vehicle and pay it (remove the ticket) 
- *
- *      Find the vehicle by the state and plate. if not found return -1
+ *      
  *
  * Inputs:
  *  plate   plate id string to be found
