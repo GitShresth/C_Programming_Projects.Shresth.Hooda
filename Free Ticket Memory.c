@@ -18,9 +18,6 @@ TODO(USING THE SOLUTION freetickets.c NOT MY CODE)
  *      tears down the database freeing all allocated memory
  *      count the number of tickets freed in the database and
  *      print it out before returning
- *
- *      unsigned long cnt = 0UL
- *      printf("Total tickets freed: %lu\n", cnt);
  */
 void
 freetickets(void)
