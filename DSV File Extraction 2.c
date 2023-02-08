@@ -45,8 +45,7 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 					endQuotePos = qPos;
 					break;
 				}
-			}
-					
+			}		
 		}
 		qPos++;
 		if(qPos == 40) {
@@ -57,13 +56,10 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 		if(quoted == 0) {
 			fprintf(stderr, "%s: drop line %lu, quoted field not terminated\n", argv0, lineno);
 			return -1;
-
 		}
 		
 		}
 		
-
-
 		if (i == 0) {
 			*ptable = buf;
 			fieldsNum++;
