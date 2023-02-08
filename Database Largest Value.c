@@ -16,7 +16,7 @@
  * largest
  *     find the vehicle with the largest number of
  *     tickets and largest fine in database
- *     and print it
+ *     and print
  */
 void
 largest(void)
