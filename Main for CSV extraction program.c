@@ -66,8 +66,8 @@ main(int argc, char **argv)
             * token returned ok, prints out columns one at a time
             */
             for (int i = 0; i < cols; i++) {
-			    printf("Line[%lu],Column[%d]:%s\n", linecnt, i + 1, *(ptable + i));
-	        }
+	    	printf("Line[%lu],Column[%d]:%s\n", linecnt, i + 1, *(ptable + i));
+	    }
         }
     }
     fprintf(stderr, "%s: %lu records input, %lu dropped\n", *argv,
