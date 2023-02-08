@@ -1,4 +1,3 @@
-// version 1.0 11/12/2022
 #include <stdio.h>
 #include "cipher.h"
 
