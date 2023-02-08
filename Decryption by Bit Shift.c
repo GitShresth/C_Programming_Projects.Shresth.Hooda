@@ -8,7 +8,7 @@ int
 decrypt(char *iobuf, char *bookbuf, int cnt)
 {
 	for (int i = 0 ; i < cnt ; i++) {
-		unsigned char initialChar = *(iobuf + i);    //init byte
+		unsigned char initialChar = *(iobuf + i);    //initialize byte
 		unsigned int final = *(bookbuf + i) ^ initialChar; //EOR
 		unsigned int rightShift;	/*value of shifting bits
 	       				  	  right */
