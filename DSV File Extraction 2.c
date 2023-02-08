@@ -27,13 +27,7 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 	char *bufEnd = buf + 30;        /*The end of the while loop argument*/
 	int fieldsNum = 0;		/*The number of data entries*/
 	int quoted = 0;
-	/*
-	 * qState of 0 is default state
-	 *qState of 1 means quote found as first char in data set
-	 *
-	 *
 	int qState = 0;
-	*/
 	
 	for(int i = 0; i < cnt + 1; i++) {
 	
@@ -41,9 +35,6 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 		int startBufPos = bufPos;
 		quoted = 0;
 		if(*(buf+bufPos) == '\"') {
-	
-		
-
 		int qPos = bufPos + 1;
 		
 		while(*(buf+qPos) != '\n') {
