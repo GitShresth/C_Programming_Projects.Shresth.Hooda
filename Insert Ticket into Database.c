@@ -114,11 +114,11 @@ insertticket(char *summ, char *plate, char *state, char *date, int code)
 	}
 	if (match == 0) {
 		struct vehicle *newV;	/*new allocated vehicle*/
-	newV = (struct vehicle*)malloc(sizeof(struct vehicle));
+		newV = (struct vehicle*)malloc(sizeof(struct vehicle));
 		newV->state = strdup(state);
 		newV->plate = strdup(plate);
 
-struct vehicle *basevehicle = *(htable+hashval);     /*chain head*/
+		struct vehicle *basevehicle = *(htable+hashval);     /*chain head*/
 		struct ticket *newT;		     /*new ticket*/
 
 		newT = (struct ticket*)malloc(sizeof(struct ticket));
