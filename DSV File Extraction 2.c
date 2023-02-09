@@ -74,7 +74,6 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 					else if(quoted == 1 && bufPos < endQuotePos && bufPos > startBufPos) {
 						fprintf(stderr, "%s: drop line %lu, quoted field not terminated\n", argv0, lineno);
 						return -1;
-
 					}
 				}
 				if ((*(buf + bufPos) == delim && quoted == 0) || (*( buf + bufPos) == delim && quoted == 1 && bufPos > endQuotePos)) {
@@ -91,7 +90,6 @@ token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
 				
 
 				if (*(buf + bufPos) == '\n') {
-					
 					*(buf+bufPos) = '\0';
 					bufPos++;
 					lastIndex = bufPos - 1;
