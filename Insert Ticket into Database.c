@@ -69,7 +69,7 @@ insertticket(char *summ, char *plate, char *state, char *date, int code)
 			struct ticket *nextTick;
 			struct ticket *newTick;
 
-	newTick = (struct ticket*)malloc(sizeof(struct ticket));
+			newTick = (struct ticket*)malloc(sizeof(struct ticket));
 			newTick->summons = summid;	
 			newTick->date = dateval;
 			newTick->code = code;
