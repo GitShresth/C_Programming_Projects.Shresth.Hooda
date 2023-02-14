@@ -9,19 +9,15 @@
 #include "parking.h"
 #include "hashdb.h"
 
-#ifndef MYVEHLOOKUP
-
-#else
-
 /*
- * vehiclelookup
+ *  vehiclelookup
  *          look for vehicle in the database
  *          vehicle must match both plate and state strings
- * args
+ *  args
  *  plate   plate id string to be found
  *  state   state id string to be found
  *
- * returns  pointer to vehicle if found NULL otherwise
+ *  returns  pointer to vehicle if found NULL otherwise
  */
 
 struct vehicle *
@@ -31,13 +27,14 @@ vehiclelookup(char *plate, char *state)
 	uint32_t hashval;	/*value used to find Chain*/
 
 	hashval = hash(plate) % tabsz;
-Chain = *(htable + hashval); // get list head pointer by plate
+	Chain = *(htable + hashval); // get list head pointer by plate
 	while (Chain != NULL) {
-		if(strcmp(plate, Chain->plate) == 0 && strcmp(state,
-		  Chain->state) == 0)
+		if(strcmp(plate, Chain->plate) == 0 && strcmp(state,Chain->state) == 0) {
 			return Chain;
-	        else 
+		}
+	        else {
 			Chain = Chain->next;
+		}
 	}
 	return NULL;
 }
