@@ -9,10 +9,6 @@
 #include "parking.h"
 #include "hashdb.h"
 
-#ifndef MYFREETICKETS
-TODO(USING THE SOLUTION freetickets.c NOT MY CODE)
-#else
-
 /*
  * freetickets
  *      tears down the database freeing all allocated memory
@@ -30,15 +26,12 @@ freetickets(void)
 		if(*(htable+i) != NULL) {
 			vehicle = *(htable+i);
 			while (vehicle != NULL) {
-				/*main ticket searched*/
-				struct ticket *tick = vehicle->head;
-				/*ticket after main ticket*/
-				struct ticket *nextTick;
-				if (tick != NULL) 
+				struct ticket *tick = vehicle->head;	/*main ticket searched*/
+				struct ticket *nextTick;	/*ticket after main ticket*/
+				if (tick != NULL) {
 					nextTick = tick->next;
-				
-				/*vehicle after curr vehicle*/
-				struct vehicle *localNextVehicle; 
+				}
+				struct vehicle *localNextVehicle;	/*vehicle after current vehicle*/
 				if (tick != NULL) {
 					while (nextTick != NULL) {
 						free(tick);
@@ -60,13 +53,15 @@ freetickets(void)
 		*(htable+i) = NULL;	
 	}
 	vehicle = NULL;
-	if (cnt == 0) 
+	if (cnt == 0) {
 		empty = 1;
-	else 
+	}
+	else {
 		empty = 0;
-
-    	if (empty)
+	}
+    	if (empty) {
         	printf("Empty Database\n");
+	}
    	printf("Total tickets freed: %lu\n", cnt);
     	return;
 }
