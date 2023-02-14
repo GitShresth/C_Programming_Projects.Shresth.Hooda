@@ -6,25 +6,25 @@
 /*
  * token
  * 
- * usage:   input buffer in dsv format, builds table of pointers to each field
- * args:
+ *  usage:   input buffer in dsv format, builds table of pointers to each field
+ *  args:
  *  buf     DSV data record stored in an array of characters, '\0' terminated
  *  delim   the field delimiter             
  *  cnt     number of data fields that a proper data record has
  *  ptable  points at array of pointers each element points at a data field
  *  lineno  line number of this record for printing error messages
  *  argv0   name of program used when printing errors
- * returns:
- *          0 if no errors founds
- *         -1 otherwise
+ *  returns:
+ *           0 if no errors founds
+ *          -1 otherwise
  */
+
 int
-token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno,
-            char *argv0)
+token(char *buf, char delim, int cnt, char **ptable, unsigned long lineno, char *argv0)
 {	
 	int bufPos = 0;			/*Position in buffer*/
-	char *bufEnd = buf + 30;        /*The end of the while loop argument*/
-	int fieldsNum = 0;		/*The number of data entries*/
+	char *bufEnd = buf + 30;        /*End of the while loop argument*/
+	int fieldsNum = 0;		/*Number of data entries*/
 
 	for(int i = 0; i < cnt + 1; i++) {
 		if (i == 0) {
