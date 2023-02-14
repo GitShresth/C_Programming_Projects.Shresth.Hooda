@@ -10,10 +10,9 @@ decrypt(char *iobuf, char *bookbuf, int cnt)
 	for (int i = 0 ; i < cnt ; i++) {
 		unsigned char initialChar = *(iobuf + i);    //initialize byte
 		unsigned int final = *(bookbuf + i) ^ initialChar; //EOR
-		unsigned int rightShift;	/*value of shifting bits
-	       				  	  right */
-		unsigned int leftShift;		/*value of shifting bits
-						  left */
+		unsigned int rightShift;	/*value of shifting bits right*/
+		unsigned int leftShift;		/*value of shifting bits left */
+		
 		rightShift = (final & 0xF0) >> 4;
 		leftShift = (final & 0x0F) << 4;
 		final = rightShift | leftShift;
@@ -25,7 +24,7 @@ decrypt(char *iobuf, char *bookbuf, int cnt)
 		final = rightShift | leftShift;
 		*(iobuf + i) = final;	
 	} 
-    return cnt;
+        return cnt;
 }
 
 #elif defined MYDECRYPT_S
