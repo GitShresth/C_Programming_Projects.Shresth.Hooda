@@ -33,14 +33,13 @@ main(int argc, char **argv)
 		fprintf(stderr, "Usage: %s -c #\n", *argv);
 		return EXIT_FAILURE;
 	}
-    errno = 0;
-    if (colPos == 1) {
+    	errno = 0;
+    	if (colPos == 1) {
 		cols = (int)strtol(*(argv + colPos) + 2, &ptr, 10);
 	}
 	else {
 		cols = (int)strtol(*(argv + colPos), &ptr, 10);
 	}
-
 	if ((*ptr != '\0') || (errno != 0)) {
 		fprintf(stderr, "%s: improper column value\n", *argv);
 		return EXIT_FAILURE;
@@ -49,30 +48,31 @@ main(int argc, char **argv)
 		fprintf(stderr, "%s: column value %d, out of range, min %d max is %d\n", *argv, cols, MINCOL, MAXCOL);
 		return EXIT_FAILURE;
 	}
-    /*
-     * read the input one line at a time, break into tokens and write out the
-     * selected columns in a "debugging" format
-     */
-    while (fgets(buf, BUFSZ, stdin)  != NULL) {
-        linecnt++;             /* count the records *
-        /*
-         * break the input into columns (data fields)
-         * use INDELIM as the delimiter (see token.h)
-         */
-        if (token(buf, INDELIM, cols, ptable, linecnt, *argv) != 0)
-            dropcnt++;          /* count the dropped rows */
-        else {
-           /*
-            * token returned ok, prints out columns one at a time
-            */
-            for (int i = 0; i < cols; i++) {
-	    	printf("Line[%lu],Column[%d]:%s\n", linecnt, i + 1, *(ptable + i));
-	    }
-        }
-    }
-    fprintf(stderr, "%s: %lu records input, %lu dropped\n", *argv,
-            linecnt, dropcnt);
-    if (dropcnt > 0)
-        return EXIT_FAILURE;
-    return EXIT_SUCCESS;
+    	/*
+     	* read the input one line at a time, break into tokens and writse out the
+     	* selected columns in a debugging format
+     	*/
+    	while (fgets(buf, BUFSZ, stdin)  != NULL) {
+      		linecnt++;             /* count the records *
+        	/*
+         	* breaks the input into columns (data fields)
+         	* uses INDELIM as the delimiter
+        	*/
+        	if (token(buf, INDELIM, cols, ptable, linecnt, *argv) != 0) {
+            		dropcnt++;	/* count the dropped rows */
+		}
+       	 	else {
+           		/*
+            		* token returned ok, prints out columns one at a time
+            		*/
+            		for (int i = 0; i < cols; i++) {
+	    			printf("Line[%lu],Column[%d]:%s\n", linecnt, i + 1, *(ptable + i));
+	    		}
+        	}
+    	}
+    	fprintf(stderr, "%s: %lu records input, %lu dropped\n", *argv, linecnt, dropcnt);
+    	if (dropcnt > 0) {
+        	return EXIT_FAILURE;
+	}
+    	return EXIT_SUCCESS;
 }
