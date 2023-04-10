@@ -15,12 +15,7 @@
 /*
  * insert ticket
  *      add a ticket (summons) to the database
- *  fineTab pointer fine table. maps code number to text description & 
- *  	    fine cost. you use this table to get the amount of the fine
- *  	    when calculating the tot_fine field in struct vehicle.
- *          example:
- *              struct vehicle *vhpt;
- *              vhpt->tot_fine += fineTab[code].fine;
+ *
  *  plate   plate id string to be added
  *  state   state id string to be added
  *          summons code integer value used an an index into the fines 
