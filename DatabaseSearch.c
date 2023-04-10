@@ -23,8 +23,10 @@
 struct vehicle *
 vehiclelookup(char *plate, char *state)
 {
-	struct vehicle *Chain;	/*struct vehicle head hashed from plate*/
-	uint32_t hashval;	/*value used to find Chain*/
+	//struct vehicle head hashed from plate
+	struct vehicle *Chain;	
+	//value used to find Chain
+	uint32_t hashval;	
 
 	hashval = hash(plate) % tabsz;
 	Chain = *(htable + hashval); // get list head pointer by plate
