@@ -12,8 +12,6 @@
 /*
  * delticket
  *      remove ticket from the database
- *      
- *
  * Inputs:
  *  plate   plate id string to be found
  *  state   state id string to be found
